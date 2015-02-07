@@ -1,0 +1,60 @@
+// ==================================
+// Global Config variables
+// ==================================
+//$background-color--container:#3F3F3F;
+
+$tab-width--heading:330px;
+
+$nav-height:60px;
+
+
+/* Mixins
+=====================================*/
+@mixin tabSize {
+	position:absolute;
+	top: 0px;
+	height:$nav-height;
+	width:$tab-width--heading;
+	border-top-left-radius:70px;
+	border-top-right-radius:70px;
+	text-align:center;
+	&:hover {
+		cursor:pointer;
+	}
+	p {
+		line-height: 60px;
+		font-size:2em;
+		color:white;
+		font-weight:bold;
+	}
+}
+
+@mixin contentWrapper {
+	width:960px;
+	margin-right:auto;
+	margin-left:auto;
+	position:relative;
+	min-height:500px;
+}
+
+
+
+/* Fonts
+=====================================*/
+
+
+
+/* Backgrounds
+=====================================*/
+
+
+
+/* border-colors:
+=====================================*/
+
+
+
+
+/* pseudo class colors:
+=====================================*/
+

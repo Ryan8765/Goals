@@ -1,0 +1,21 @@
+$(document).ready(function() {
+	$('nav div').on('click', function() {
+		//link clicked on id
+		var id = "#";
+		var navId = $(this);
+		id += $(this).attr("id");
+		//add "content" to locate div in question to show...ex - "monthlyContent"
+		id += "Content";
+		//jquery selector for id
+		var contentNode = $(id);
+		//if you click a link that is not shown continue otherwise do nothing
+		if (contentNode.css('display') == 'none') {
+			//hide content
+			$('#dailyContent, #monthlyContent, #yearlyContent').hide();
+			contentNode.fadeIn('500');
+			//change z-index so tab comes to front
+			$('#daily, #monthly, #yearly').css('z-index', '0');
+			navId.css('z-index', '100');
+		}//end if
+	});//end onclick
+});
