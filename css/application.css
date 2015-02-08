@@ -151,6 +151,8 @@ li:last-child {
   margin-left: auto;
   position: relative;
   min-height: 500px;
+  box-shadow: 15px 15px 10px black;
+  margin-bottom: 50px;
   background-color: #720707; }
 
 #monthlyContent {
@@ -159,6 +161,8 @@ li:last-child {
   margin-left: auto;
   position: relative;
   min-height: 500px;
+  box-shadow: 15px 15px 10px black;
+  margin-bottom: 50px;
   background-color: #BFB694;
   display: none; }
 
@@ -168,11 +172,47 @@ li:last-child {
   margin-left: auto;
   position: relative;
   min-height: 500px;
+  box-shadow: 15px 15px 10px black;
+  margin-bottom: 50px;
   background-color: #004659;
   display: none; }
 
 /* Classes
 =====================================*/
+.helpPage {
+  background-color: white;
+  padding: 2em;
+  margin-top: 1em; }
+  .helpPage img {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 4px solid black;
+    background-color: white;
+    display: block;
+    margin-left: 20px; }
+  .helpPage h1 {
+    font-size: 2.5em;
+    background-color: white;
+    text-align: center;
+    padding-top: 1em;
+    text-decoration: underline;
+    font-weight: bold; }
+  .helpPage h2 {
+    padding-top: 2em;
+    background-color: white;
+    font-size: 1.5em;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: underline;
+    padding-bottom: 1em;
+    font-weight: bold; }
+  .helpPage p {
+    background-color: white;
+    padding-bottom: 1em;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 1.1em; }
+
 .wrapper {
   width: 960px;
   margin-right: auto;
@@ -205,8 +245,8 @@ li:last-child {
   position: absolute;
   top: 10px;
   right: 10px;
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   border-radius: 10px; }
   .trash:hover {
     cursor: pointer; }
@@ -214,9 +254,9 @@ li:last-child {
 .help {
   position: absolute;
   top: 10px;
-  right: 60px;
-  height: 35px;
-  width: 35px;
+  right: 50px;
+  height: 30px;
+  width: 30px;
   border-radius: 10px; }
   .help:hover {
     cursor: pointer; }
@@ -263,6 +303,33 @@ li:last-child {
   .popupBackground p {
     text-align: center;
     padding-bottom: 2em; }
+
+.upArrow {
+  float: left;
+  height: 20px;
+  width: 15px;
+  vertical-align: top;
+  padding-left: 10px; }
+  .upArrow:hover {
+    cursor: pointer; }
+
+.downArrow {
+  float: left;
+  height: 20px;
+  width: 15px;
+  vertical-align: top;
+  padding-left: 10px; }
+  .downArrow:hover {
+    cursor: pointer; }
+
+.doubleArrow {
+  float: left;
+  height: 20px;
+  width: 15px;
+  vertical-align: top;
+  padding-left: 10px; }
+  .doubleArrow:hover {
+    cursor: pointer; }
 
 /* Animations
 =====================================*/

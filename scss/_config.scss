@@ -35,6 +35,19 @@ $nav-height:60px;
 	margin-left:auto;
 	position:relative;
 	min-height:500px;
+	box-shadow:15px 15px 10px black;
+	margin-bottom:50px;
+}
+
+@mixin imgArrows {
+	float:left;
+	height:20px;
+	width:15px;
+	vertical-align:top;
+	padding-left:10px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 

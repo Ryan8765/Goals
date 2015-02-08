@@ -82,6 +82,48 @@ li:last-child {
 
 /* Classes
 =====================================*/
+.helpPage {
+	background-color:white;
+	padding:2em;
+	margin-top:1em;
+
+	img {
+		margin-top:1em;
+		margin-bottom:1em;
+		border:4px solid black;
+		background-color:white;
+		display:block;
+		margin-left: 20px;
+	}
+
+	h1 {
+		font-size:2.5em;
+		background-color:white;
+		text-align:center;
+		padding-top:1em;
+		text-decoration:underline;
+		font-weight:bold;
+	}
+
+	h2 {
+		padding-top:2em;
+		background-color:white;
+		font-size:1.5em;
+		padding-left: 20px;
+		padding-right: 20px;
+		text-decoration:underline;
+		padding-bottom:1em;
+		font-weight: bold;
+	}
+
+	p {
+		background-color:white;
+		padding-bottom:1em;
+		padding-right:20px;
+		padding-left:20px;
+		font-size:1.1em;
+	}
+}
 .wrapper {
 	width:960px;
 	margin-right:auto;
@@ -120,8 +162,8 @@ li:last-child {
 	position:absolute;
 	top:10px;
 	right:10px;
-	height:35px;
-	width:35px;
+	height:30px;
+	width:30px;
 	border-radius:10px;
 	&:hover {
 		cursor:pointer;
@@ -131,9 +173,9 @@ li:last-child {
 .help {
 	position:absolute;
 	top:10px;
-	right:60px;
-	height:35px;
-	width:35px;
+	right:50px;
+	height:30px;
+	width:30px;
 	border-radius:10px;
 	&:hover {
 		cursor: pointer;
@@ -194,6 +236,18 @@ li:last-child {
 		padding-bottom:2em;
 	}
 }//end popupbackground
+
+.upArrow {
+	@include imgArrows;
+}
+
+.downArrow {
+	@include imgArrows;
+}
+
+.doubleArrow {
+	@include imgArrows;
+}
 
 /* Animations
 =====================================*/

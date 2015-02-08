@@ -13,6 +13,8 @@ $(document).ready(function() {
 
 	//function for saving content to localStorage
 	var storage = function () {
+		//remove arrows so it doesn't save html with arrows shown.  
+		$('.upArrow, .downArrow, .doubleArrow').remove();
 		//check for storage support in browser, if none alert user once.
 		if(typeof(Storage) !== "undefined") {
     		// Code for localStorage/sessionStorage.
@@ -69,12 +71,11 @@ $(document).ready(function() {
 		var htmlToAdd;
 		var inputValue;
 		inputValue = $this.prev().val();
-		console.log(inputValue);
 		htmlToAdd = "<li>";
 		htmlToAdd += inputValue;
 		htmlToAdd +="<img class='xout' src='images/xout.gif'></li>";
 		htmlToAdd = $(htmlToAdd);
-		$this.parent().next().find('ul').append(htmlToAdd);
+		$this.parent().next().find('ul').prepend(htmlToAdd);
 		$this.prev().val('');
 	};
 
@@ -82,12 +83,11 @@ $(document).ready(function() {
 			var htmlToAdd;
 			var inputValue;
 			inputValue = $this.val();
-			console.log(inputValue);
 			htmlToAdd = "<li>";
 			htmlToAdd += inputValue;
 			htmlToAdd +="<img class='xout' src='images/xout.gif'></li>";
 			htmlToAdd = $(htmlToAdd);
-			$this.parent().next().find('ul').append(htmlToAdd);
+			$this.parent().next().find('ul').prepend(htmlToAdd);
 			$this.val("");
 	};
 
@@ -136,7 +136,6 @@ $(document).ready(function() {
 			$this.parent().prepend($node);
 			$this.remove();
 		} else {
-			console.log($node);
 			$node.addClass('checkedItem');
 			$this.parent().append($node);
 			$this.remove();
@@ -159,14 +158,82 @@ $(document).ready(function() {
 
 	//get rid of content when yes button clicked on popup background
 	$('body').on('click','#yes', function() {
-		console.log($thisTrash);
 		$thisTrash.prev().empty();
 		$('.popupBackground').remove();
 		storage();
 	});
+
+	//append arrows on hover over li
+	$('body').on('mouseenter','li',function() {
+		var images = $("<img class='arrow upArrow' src='images/upArrow.png'><img class='arrow downArrow' src='images/downArrow.png'><img class='arrow doubleArrow' src='images/doubleArrow.png'>");
+		if(!($(this).hasClass('checkedItem'))) {
+			$(this).prepend(images);
+		}
+	});
+	//remove arrows when mouseleaves li
+	$('body').on('mouseleave','li',function() {
+		if(!($(this).hasClass('checkedItem'))) {
+			$('.arrow').remove();
+		} 
+	});
+
+	//move li to top when double arrow is clicked
+	$('body').on('click', '.doubleArrow', function(e) {
+		e.stopPropagation();
+		var $li = $(this).parent();
+		$(this).parent().parent().prepend($li);
+		storage();
+	});
+
+	//move li up one spot when up arrow clicked
+	$('body').on('click', '.upArrow', function(e) {
+		e.stopPropagation();
+		var $li = $(this).parent();
+		//li up one spot
+		var $previousLi = $(this).parent().prev();
+		if($previousLi.length !== 0){
+    		$li.insertBefore($previousLi);
+  		}//end if
+  		storage();
+	});
+
+	//move li down one spot when down arrow clicked
+	$('body').on('click', '.downArrow', function(e) {
+		e.stopPropagation();
+		var $li = $(this).parent();
+		//li up one spot
+		var $nextLi = $(this).parent().next();
+		if($nextLi.length !== 0 && !$nextLi.hasClass('checkedItem')){
+    		$li.insertAfter($nextLi);
+  		}//end if
+  		storage();
+	});
+
 
 
 
 	
 //----------------------------------	
 });
+
+/*
+
+$(".reorder-up").click(function(){
+  var $current = $(this).closest('li')
+  var $previous = $current.prev('li');
+  if($previous.length !== 0){
+    $current.insertBefore($previous);
+  }
+  return false;
+});
+
+$(".reorder-down").click(function(){
+  var $current = $(this).closest('li')
+  var $next = $current.next('li');
+  if($next.length !== 0){
+    $current.insertAfter($next);
+  }
+  return false;
+});
+
+*/
