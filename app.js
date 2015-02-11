@@ -8,7 +8,7 @@ $(document).ready(function() {
 	var alerted = "no";
 	//when trashcan clicked send 'this' to this variable to use on "yes" click of .popupBackground below
 	var $thisTrash;
-	//if local storage hasn't been initiated don't load local storage, else load local storage
+	
 	
 
 	//function for saving content to localStorage
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		var htmlToAdd;
 		var inputValue;
 		inputValue = $this.prev().val();
-		htmlToAdd = "<li>";
+		htmlToAdd = "<li class='sort'>";
 		htmlToAdd += inputValue;
 		htmlToAdd +="<img class='xout' src='images/xout.gif'></li>";
 		htmlToAdd = $(htmlToAdd);
@@ -83,7 +83,7 @@ $(document).ready(function() {
 			var htmlToAdd;
 			var inputValue;
 			inputValue = $this.val();
-			htmlToAdd = "<li>";
+			htmlToAdd = "<li class='sort'>";
 			htmlToAdd += inputValue;
 			htmlToAdd +="<img class='xout' src='images/xout.gif'></li>";
 			htmlToAdd = $(htmlToAdd);
@@ -125,7 +125,7 @@ $(document).ready(function() {
 	});
 
 	//append li to bottom of list on click and change class and vice versa
-	$('body').on('click','li', function() {
+	$('body').on('dblclick','li', function() {
 		var $this = $(this);
 		var text = $this.text();
 		var node = "<li>";
@@ -134,10 +134,12 @@ $(document).ready(function() {
 		var $node = $(node);
 		if ($this.hasClass('checkedItem')) {
 			$this.parent().prepend($node);
+			$node.addClass('sort');
 			$this.remove();
 		} else {
 			$node.addClass('checkedItem');
 			$this.parent().append($node);
+			$node.removeClass('sort');
 			$this.remove();
 		}
 		//run local storage object
@@ -209,6 +211,12 @@ $(document).ready(function() {
   		storage();
 	});
 
+	//make list items sortable by moving them with mouse
+	$( "ul" ).sortable({   
+        revert:true, 
+        cancel: ".checkedItem",         
+    });  
+
 
 
 
@@ -216,24 +224,3 @@ $(document).ready(function() {
 //----------------------------------	
 });
 
-/*
-
-$(".reorder-up").click(function(){
-  var $current = $(this).closest('li')
-  var $previous = $current.prev('li');
-  if($previous.length !== 0){
-    $current.insertBefore($previous);
-  }
-  return false;
-});
-
-$(".reorder-down").click(function(){
-  var $current = $(this).closest('li')
-  var $next = $current.next('li');
-  if($next.length !== 0){
-    $current.insertAfter($next);
-  }
-  return false;
-});
-
-*/
