@@ -73,12 +73,15 @@ ul {
   padding-bottom: 50px;
   text-align: center; }
   ul li {
+    position: relative;
     background-color: white;
     border-top: 1px dashed grey;
     border-bottom: 1px dashed grey;
     font-size: 1.2em;
     padding-top: .3em;
-    padding-bottom: .3em; }
+    padding-bottom: .3em;
+    padding-right: 30px;
+    padding-left: 3px; }
     ul li:hover {
       cursor: pointer; }
 
@@ -262,6 +265,8 @@ li:last-child {
     cursor: pointer; }
 
 .xout {
+  position: absolute;
+  right: 2px;
   height: 20px;
   width: 20px;
   float: right;
