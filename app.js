@@ -211,11 +211,17 @@ $(document).ready(function() {
   		storage();
 	});
 
-	//make list items sortable by moving them with mouse
+	//make list items sortable by moving them with mouse and
 	$( "ul" ).sortable({   
         revert:true, 
-        cancel: ".checkedItem",         
-    });  
+        cancel: ".checkedItem",
+        //update storage to make sure local storage recognizes jquery drag and drop item change.
+        update: function(event, ui) {
+        	storage();
+        }          
+    }); 
+
+
 
 
 
